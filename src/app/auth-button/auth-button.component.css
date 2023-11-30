@@ -1,0 +1,27 @@
+button {
+  cursor: pointer;
+  width: 80%;
+  padding: 16px 24px;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.primary {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+.secondary {
+  background-color: #2ecc71;
+  color: #fff;
+}
+
+button:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+}

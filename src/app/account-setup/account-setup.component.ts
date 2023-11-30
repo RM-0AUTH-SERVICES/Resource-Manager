@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SideIllustrationComponent } from '../side-illustration/side-illustration.component';
+import { AuthButtonComponent } from '../auth-button/auth-button.component';
 
 @Component({
   selector: 'app-account-setup',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, SideIllustrationComponent, AuthButtonComponent],
   templateUrl: './account-setup.component.html',
   styleUrl: './account-setup.component.css',
 })
@@ -22,15 +24,13 @@ export class AccountSetupComponent {
     });
   }
 
-  onSubmit() {
-    if (this.accountSetupForm.valid) {
-      const userData = this.accountSetupForm.value;
-      // Call a service method to complete the user registration
-      // this.userService.completeRegistration(userData).subscribe(response => {
-      //   // Handle success
-      // }, error => {
-      //   // Handle error
-      // });
-    }
-  }
+  // onSubmit() {
+  //   if (this.accountSetupForm.valid) {
+  //     const userData = this.accountSetupForm.value;
+  // Call a service method to complete the user registration
+  // this.userService.completeRegistration(userData).subscribe(response => {
+  //   // Handle success
+  // }, error => {
+  //   // Handle error
+  // });
 }

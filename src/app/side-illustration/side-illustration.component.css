@@ -1,0 +1,37 @@
+.illustration-container {
+  width: 250px;
+  height: 100%;
+  border-radius: 16px;
+  background: var(--color-primary);
+  margin: 0 20px;
+}
+
+.app-logo {
+  width: 120px;
+  height: 120px;
+  margin-left: 40px;
+}
+
+.container-hero-text {
+  font-family: "LexendBold";
+  font-size: 26px;
+  color: var(--bg-primary);
+  padding: 30px;
+  width: 180px;
+  margin-top: -30px;
+}
+
+.container-sub-text {
+  width: 180px;
+  font-family: "LexendRegular";
+  font-size: 10px;
+  line-height: 18px;
+}
+
+.auth-illustration {
+  position: absolute;
+  top: 340px;
+  right: 985px;
+  width: 260px;
+  height: 260px;
+}

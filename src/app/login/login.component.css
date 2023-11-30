@@ -1,0 +1,29 @@
+.login-hero-container {
+  display: flex;
+  gap: 100px;
+  width: 100%;
+  margin: 40px 0;
+}
+.text-login span {
+  font-family: "LexendExtrabold";
+  font-size: 30px;
+  color: var(--colors-primary-slate-700);
+}
+
+.login-account-container {
+  margin: 80px 0;
+}
+
+.login-welcome-msg {
+  width: 500px;
+  font-size: 12px;
+}
+
+.login-welcome-msg a {
+  color: var(--colors-primary-primary-600);
+}
+
+.remember-me {
+  display: flex;
+  gap: 140px;
+}

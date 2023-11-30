@@ -1,0 +1,10 @@
+<button
+  [ngClass]="{
+    primary: variant === 'primary',
+    secondary: variant === 'secondary'
+  }"
+  [disabled]="disabled"
+  (click)="onClick.emit()"
+>
+  <ng-content></ng-content>
+</button>

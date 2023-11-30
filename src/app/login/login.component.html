@@ -1,1 +1,29 @@
-<p>login works!</p>
+<section class="login-hero-container">
+  <app-side-illustration></app-side-illustration>
+  <div class="login-account-container">
+    <div class="text-login">
+      <span>Login</span>
+      <p class="login-welcome-msg">
+        Welcome back. Enter your details to open your account. Don't have an
+        account account yet, <a href="/sign-up">create account.</a>
+      </p>
+      <Form formGroup="loginForm">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="text" id="email" placeholder="email" />
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter password" />
+          </div>
+          <div class="remember-me">
+            <p>Remember me</p>
+            <a href="forgot-password">Forgot password</a>
+          </div>
+        </div>
+        <app-auth-button variant="primary" (onClick)="handleClick()">
+          Login
+        </app-auth-button>
+      </Form>
+    </div>
+  </div>
+</section>

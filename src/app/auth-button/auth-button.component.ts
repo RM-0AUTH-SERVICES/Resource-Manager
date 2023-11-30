@@ -1,0 +1,15 @@
+import { Component, Input, EventEmitter, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-auth-button',
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './auth-button.component.html',
+  styleUrl: './auth-button.component.css',
+})
+export class AuthButtonComponent {
+  @Input() variant: 'primary' | 'secondary' = 'primary';
+  @Input() disabled: boolean = false;
+  @Output() onClick: EventEmitter<void> = new EventEmitter<void>();
+}
