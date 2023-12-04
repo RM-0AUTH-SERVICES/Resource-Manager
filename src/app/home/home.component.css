@@ -1,0 +1,11 @@
+.section-users {
+  display: flex;
+  gap: 970px;
+  padding: 90px;
+  margin-left: -90px;
+}
+
+.btns-container {
+  display: flex;
+  gap: 20px;
+}

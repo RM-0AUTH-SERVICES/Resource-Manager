@@ -8,6 +8,9 @@
 .account-setup-container {
   display: flex;
   gap: 180px;
+  margin: 50px 0;
+
+  scroll-behavior: smooth;
 }
 
 .text-account-setup span {
@@ -31,6 +34,8 @@
   font-family: "LexendRegular";
   font-size: 12px;
   color: var(--colors-primary-slate-700);
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .btn-complete-setup {
@@ -43,4 +48,45 @@
   background: var(--colors-primary-primary-600);
   color: var(--bg-primary);
   cursor: pointer;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 400px;
+  top: 46%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.setup-password-toggle {
+  position: absolute;
+  right: 400px;
+  top: 62%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.password-strength-indicator {
+  height: 10px;
+  width: 100%;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+.weak {
+  background-color: red;
+}
+
+.moderate {
+  background-color: yellow;
+}
+
+.strong {
+  background-color: green;
+}
+
+.btn-text {
+  text-transform: uppercase;
+  font-family: "LexendSemibold";
+  font-size: 14px;
 }

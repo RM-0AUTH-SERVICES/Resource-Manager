@@ -1,9 +1,10 @@
 .login-hero-container {
   display: flex;
-  gap: 100px;
   width: 100%;
-  margin: 40px 0;
+  height: 100vh;
+  gap: 90px;
 }
+
 .text-login span {
   font-family: "LexendExtrabold";
   font-size: 30px;
@@ -11,12 +12,17 @@
 }
 
 .login-account-container {
-  margin: 80px 0;
+  margin: 120px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
 }
 
 .login-welcome-msg {
-  width: 500px;
   font-size: 12px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .login-welcome-msg a {
@@ -25,5 +31,112 @@
 
 .remember-me {
   display: flex;
-  gap: 140px;
+  color: var(--colors-primary-primary-600);
+  gap: 225px;
+  margin-bottom: 20px;
+}
+
+.remember-me > div {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.remember-me p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.remember-me a {
+  color: var(--colors-primary-primary-600);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.check-box input {
+  outline: none;
+}
+
+.password-input-container {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 40px;
+  top: 29.5%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.auth-illustration {
+  position: absolute;
+  bottom: 0;
+  right: 950px;
+  left: 0;
+  top: 300px;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  object-fit: cover;
+}
+
+.login-account-container form {
+  width: 100%;
+}
+.login-responsive-btn {
+  margin: 32px 0;
+}
+
+.login-responsive-btn p {
+  font-family: "LexendSemibold";
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.has-error .error-message {
+  font-size: 12px;
+  color: red;
+  margin-top: -20px;
+}
+
+.btn-text {
+  text-transform: uppercase;
+  font-family: "LexendSemibold";
+  font-size: 14px;
+  width: 100%;
+}
+.btn-login > button {
+  width: 100% !important;
+  display: block !important;
+}
+
+.check-box {
+  width: 18px;
+  height: 18px;
+  border-radius: 20px;
+}
+
+.input-has-error {
+  outline: 2px solid rgb(254, 126, 126);
+  border: 2px solid #e01e1e;
+}
+
+.error-message {
+  color: red;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* .custom-error-card {
+  background: rgb(254, 126, 126);
+} */
+
+.panelClass .custom-snackbar {
+  position: absolute;
+  background-color: rgb(254, 126, 126);
+  color: #e01e1e;
+  font-size: 12px;
 }

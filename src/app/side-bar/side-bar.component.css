@@ -1,0 +1,10 @@
+.side-bar-container {
+  display: flex;
+  width: 200px;
+  height: 100%;
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 276px;
+  background: var(--bg-primary);
+}

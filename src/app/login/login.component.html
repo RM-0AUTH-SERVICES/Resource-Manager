@@ -1,29 +1,110 @@
 <section class="login-hero-container">
-  <app-side-illustration></app-side-illustration>
+  <app-side-illustration> </app-side-illustration>
+  <img
+    src="/assets/svg/auth-illustration.svg"
+    alt="man working on laptop"
+    class="auth-illustration"
+  />
   <div class="login-account-container">
     <div class="text-login">
       <span>Login</span>
       <p class="login-welcome-msg">
         Welcome back. Enter your details to open your account. Don't have an
-        account account yet, <a href="/sign-up">create account.</a>
+        account account yet, <a href="sign-up">create account.</a>
       </p>
-      <Form formGroup="loginForm">
-        <div class="form-group">
+
+      <form [formGroup]="loginForm" (ngSubmit)="loginOnSubmit()">
+        <div
+          class="form-group"
+          [ngClass]="{ 'has-error': submitted && email.invalid }"
+        >
           <label for="email">Email</label>
-          <input type="text" id="email" placeholder="email" />
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="Enter password" />
+          <input
+            type="text"
+            id="email"
+            placeholder="email"
+            formControlName="email"
+            [ngClass]="cssClasses"
+          />
+          <div
+            *ngIf="
+              loginForm.invalid &&
+              email.hasError('required') &&
+              loginForm.get('email')?.touched
+            "
+            class="error-message"
+          >
+            The email field is required!
           </div>
-          <div class="remember-me">
-            <p>Remember me</p>
-            <a href="forgot-password">Forgot password</a>
+          <div
+            *ngIf="loginForm.invalid && email.hasError('email')"
+            class="error-message"
+          >
+            Invalid email address!
           </div>
         </div>
-        <app-auth-button variant="primary" (onClick)="handleClick()">
-          Login
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-input-container">
+            <input
+              type="{{ hidePassword ? 'password' : 'text' }}"
+              id="password"
+              placeholder="Enter password"
+              formControlName="password"
+            />
+            <svg
+              *ngIf="hidePassword"
+              class="password-toggle"
+              (click)="togglePasswordVisibility()"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+            >
+              <path
+                d="M5.05499 3.74569C4.98913 3.67144 4.90918 3.61101 4.81979 3.56789C4.7304 3.52477 4.63334 3.49982 4.53423 3.49449C4.43513 3.48916 4.33595 3.50355 4.24245 3.53683C4.14895 3.57011 4.06298 3.62162 3.98953 3.68837C3.91608 3.75512 3.85661 3.83578 3.81457 3.92568C3.77252 4.01559 3.74874 4.11294 3.7446 4.2121C3.74045 4.31126 3.75603 4.41026 3.79043 4.50336C3.82483 4.59645 3.87737 4.68179 3.94499 4.75444L5.74874 6.73913C2.34374 8.82881 0.879366 12.0501 0.814679 12.1963C0.772035 12.2922 0.75 12.396 0.75 12.501C0.75 12.606 0.772035 12.7098 0.814679 12.8057C0.847491 12.8798 1.64155 14.6404 3.40687 16.4057C5.75905 18.7569 8.72999 20.0001 12 20.0001C13.6806 20.0096 15.3442 19.6636 16.8816 18.9848L18.9441 21.2544C19.0099 21.3287 19.0899 21.3891 19.1793 21.4322C19.2686 21.4754 19.3657 21.5003 19.4648 21.5056C19.5639 21.511 19.6631 21.4966 19.7566 21.4633C19.8501 21.43 19.9361 21.3785 20.0095 21.3118C20.083 21.245 20.1424 21.1643 20.1845 21.0744C20.2265 20.9845 20.2503 20.8872 20.2544 20.788C20.2586 20.6889 20.243 20.5899 20.2086 20.4968C20.1742 20.4037 20.1217 20.3183 20.0541 20.2457L5.05499 3.74569ZM13.3987 15.1541C12.8105 15.4636 12.136 15.569 11.4814 15.4536C10.8268 15.3382 10.229 15.0087 9.78189 14.5168C9.33481 14.0249 9.06377 13.3984 9.01134 12.7358C8.9589 12.0731 9.12803 11.4118 9.49218 10.8557L13.3987 15.1541ZM23.1853 12.8057C23.1459 12.8938 22.1962 14.9966 20.0578 16.9119C19.9104 17.0442 19.7167 17.1128 19.519 17.1028C19.3212 17.0928 19.1354 17.005 19.0022 16.8585L9.50624 6.41288C9.4154 6.31319 9.35312 6.19086 9.32596 6.05875C9.29879 5.92665 9.30776 5.78966 9.3519 5.66222C9.39604 5.53479 9.47373 5.42161 9.57679 5.33461C9.67984 5.24761 9.80445 5.19001 9.93749 5.16788C10.6192 5.05531 11.309 4.99919 12 5.00006C15.27 5.00006 18.2409 6.24319 20.5931 8.59538C22.3584 10.3607 23.1525 12.1223 23.1853 12.1963C23.2279 12.2922 23.25 12.396 23.25 12.501C23.25 12.606 23.2279 12.7098 23.1853 12.8057Z"
+                fill="#5E718D"
+              />
+            </svg>
+
+            <svg
+              *ngIf="!hidePassword"
+              class="password-toggle"
+              (click)="togglePasswordVisibility()"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+            >
+              <path
+                d="M25.5335 7.86632C23.1798 3.27387 18.5201 0.166667 13.1846 0.166667C7.84906 0.166667 3.18804 3.27604 0.835606 7.86675C0.736319 8.06316 0.684588 8.28015 0.684588 8.50022C0.684588 8.72029 0.736319 8.93728 0.835606 9.13368C3.18934 13.7261 7.84906 16.8333 13.1846 16.8333C18.5201 16.8333 23.1811 13.724 25.5335 9.13325C25.6328 8.93684 25.6845 8.71985 25.6845 8.49978C25.6845 8.27971 25.6328 8.06272 25.5335 7.86632ZM13.1846 14.75C11.9484 14.75 10.7401 14.3834 9.71225 13.6967C8.68444 13.0099 7.88336 12.0338 7.41032 10.8918C6.93727 9.74973 6.8135 8.49307 7.05466 7.28069C7.29581 6.0683 7.89107 4.95466 8.76515 4.08058C9.63922 3.2065 10.7529 2.61125 11.9652 2.37009C13.1776 2.12893 14.4343 2.25271 15.5763 2.72575C16.7184 3.1988 17.6945 3.99988 18.3812 5.02769C19.068 6.05549 19.4346 7.26387 19.4346 8.5C19.435 9.32087 19.2736 10.1338 18.9596 10.8922C18.6457 11.6507 18.1853 12.3399 17.6049 12.9203C17.0244 13.5008 16.3353 13.9611 15.5768 14.2751C14.8183 14.589 14.0054 14.7504 13.1846 14.75ZM13.1846 4.33333C12.8127 4.33853 12.4432 4.39386 12.086 4.49783C12.3804 4.89786 12.5217 5.39014 12.4842 5.88539C12.4467 6.38064 12.233 6.84607 11.8818 7.19727C11.5306 7.54846 11.0652 7.76217 10.57 7.79964C10.0747 7.8371 9.58243 7.69584 9.18239 7.40148C8.9546 8.24071 8.99572 9.13024 9.29996 9.94488C9.60421 10.7595 10.1563 11.4582 10.8784 11.9427C11.6006 12.4271 12.4564 12.6729 13.3256 12.6455C14.1948 12.618 15.0334 12.3187 15.7236 11.7896C16.4137 11.2606 16.9206 10.5284 17.1728 9.69618C17.425 8.86396 17.4099 7.9736 17.1296 7.15042C16.8493 6.32724 16.3179 5.61269 15.6102 5.10734C14.9025 4.60199 14.0542 4.33129 13.1846 4.33333Z"
+                fill="#5E718D"
+              />
+            </svg>
+          </div>
+        </div>
+        <div>
+          <div class="remember-me">
+            <div>
+              <input
+                type="checkbox"
+                class="check-box"
+                [checked]="isRemembered"
+                (change)="isRemembered = !isRemembered"
+              />
+              <p>Remember me</p>
+            </div>
+
+            <a href="forgot-password">Forgot Password ?</a>
+          </div>
+        </div>
+
+        <app-auth-button variant="primary" class="btn-login">
+          <p class="btn-text">Login</p>
         </app-auth-button>
-      </Form>
+      </form>
     </div>
   </div>
 </section>

@@ -31,19 +31,27 @@
 
 :root {
   --color-primary: #1f26a8;
+  --colors-primary-slate-500: #5e718d;
   --colors-primary-primary-600: #0f3cd9;
   --colors-primary-slate-700: #3d4a5c;
   --outline-input-enabled: #9aa8bc;
   --colors-primary-slate-500: #5e718d;
   --bg-primary: #ffff;
+  --bg-color: #f9fafb;
 }
 
-* {
-  transition: ease-in-out 0.003s;
+*,
+*::after,
+*::before {
+  transition: ease-in-out 0.03s;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "LexendRegular";
+  /* background: var(--bg-color); */
 }
 
 .form-group label {
@@ -55,11 +63,10 @@ body {
 }
 
 .form-group input {
-  width: 80%;
+  width: 95%;
   border: 2px solid var(--outline-input-enabled);
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 12px 16px;
-
   justify-content: center;
   align-items: center;
   padding: 8px;
@@ -68,5 +75,31 @@ body {
 }
 
 .form-group input:focus {
-  outline: 2px solid #007bff;
+  outline: 3px solid #cedff4;
+  border: 2px solid #397fd1;
+}
+
+.hidden-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  gap: 100px;
+}
+
+.auth-hero-text span {
+  font-family: "LexendExtrabold";
+  font-size: 30px;
+  color: var(--colors-primary-slate-700);
+  padding-bottom: 20px;
+}
+
+.auth-hero-text p {
+  padding-top: 15px;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+html,
+body {
+  height: 100%;
 }

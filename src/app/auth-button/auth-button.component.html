@@ -5,6 +5,7 @@
   }"
   [disabled]="disabled"
   (click)="onClick.emit()"
+  [attr.aria-disabled]="disabled ? true : null"
 >
   <ng-content></ng-content>
 </button>

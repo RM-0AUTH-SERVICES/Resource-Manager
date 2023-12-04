@@ -1,0 +1,28 @@
+.filled-button-container {
+  padding: 1px 16px;
+  font-family: "LexendSemibold";
+  width: 100px;
+  height: 45px;
+  /* justify-content: center;
+  align-items: center; */
+  border-radius: 16px;
+  background: var(--color-primary);
+  border: none;
+  text-transform: capitalize;
+  color: var(--bg-primary);
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 100px;
+  background: red;
+}

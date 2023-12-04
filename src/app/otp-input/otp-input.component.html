@@ -1,0 +1,16 @@
+<div class="otp-container">
+  <div
+    class="otp-input"
+    (keydown)="onOtpInputKeydown($event, i)"
+    *ngFor="let box of [].constructor(numberOfBoxes); let i = index"
+  >
+    <input
+      #otpInput
+      type="text"
+      [value]="otpValue[i] || ''"
+      (input)="onOtpInputChange($event, i)"
+      (focus)="onOtpInputChange($event, i)"
+      maxlength="1"
+    />
+  </div>
+</div>
